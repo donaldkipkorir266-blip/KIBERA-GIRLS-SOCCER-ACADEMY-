@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KGSA Admin Dashboard | CMS</title>
+  
+  <!-- Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <script>
+    /**
+     * FIX: Decap CMS looks for config.yml by default.
+     * To bypass the fetch error, we define window.CMS_CONFIG *before* loading the script.
+     */
+    window.CMS_CONFIG = {
+      backend: {
+        name: 'git-gateway',
+        branch: 'main',
+        squash_merges: true,
+      },
+      // This setting tells the CMS to skip the external fetch call
+      load_config_file: false, 
+      display_url: window.location.origin,
+      media_folder: 'images/uploads',
+      public_folder: '/images/uploads',
+      collections: [
+        {
+          name: 'gallery',
+          label: 'Photo Gallery',
+          label_singular: 'Photo',
+          folder: 'data/gallery',
+          create: true,
+          extension: 'json',
+          format: 'json',
+          fields: [
+            { label: 'Photo Title / Caption', name: 'caption', widget: 'string' },
+            { label: 'Upload Image', name: 'image', widget: 'image' },
+            { label: 'Date', name: 'date', widget: 'datetime' }
+          ]
+        },
+        {
+          name: 'news',
+          label: 'News & Updates',
+          label_singular: 'News Article',
+          folder: 'data/news',
+          create: true,
+          slug: '{{year}}-{{month}}-{{day}}-{{slug}}',
+          fields: [
+            { label: 'Headline', name: 'title', widget: 'string' },
+            { label: 'Publish Date', name: 'date', widget: 'datetime' },
+            { label: 'Cover Image', name: 'thumbnail', widget: 'image', required: false },
+            { label: 'Article Text', name: 'body', widget: 'markdown' }
+          ]
+        },
+        {
+          name: 'settings',
+          label: 'Website Settings',
+          files: [
+            {
+              label: 'General Contact Info',
+              name: 'contact',
+              file: 'data/contact.json',
+              fields: [
+                { label: 'Email Address', name: 'email', widget: 'string' },
+                { label: 'Phone Number', name: 'phone', widget: 'string' },
+                { label: 'Office Address', name: 'address', widget: 'text' }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+  </script>
+
+  <!-- Load Decap CMS Script after setting the global config -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  
+  <script>
+    // Handle Identity login redirects
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
