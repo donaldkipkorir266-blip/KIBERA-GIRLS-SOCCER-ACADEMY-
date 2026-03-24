@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kibera Girls Soccer Academy | Educate. Inspire. Empower.</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth transitions and basic cleanups */
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .fade-in { animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(4, 120, 87, 0.85), rgba(6, 78, 59, 0.9)), 
+                        url('https://images.unsplash.com/photo-1542652735873-fb2825bac6e2?auto=format&fit=crop&q=80&w=1920') center/cover;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#home" class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-brand-700 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">
+                            KG
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-bold text-gray-900 leading-tight">KGSA</span>
+                            <span class="text-xs text-brand-600 font-medium">Kibera Girls Soccer Academy</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-brand-600 font-medium transition-colors">Home</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-brand-600 font-medium transition-colors">About</a>
+                    <a href="#what-we-do" class="nav-link text-gray-600 hover:text-brand-600 font-medium transition-colors">What We Do</a>
+                    <a href="#achievements" class="nav-link text-gray-600 hover:text-brand-600 font-medium transition-colors">Achievements</a>
+                    <a href="#gallery" class="nav-link text-gray-600 hover:text-brand-600 font-medium transition-colors">Gallery</a>
+                    <a href="#get-involved" class="nav-link text-gray-600 hover:text-brand-600 font-medium transition-colors">Get Involved</a>
+                    <a href="#donate" class="bg-brand-600 text-white px-5 py-2.5 rounded-md font-medium hover:bg-brand-700 transition-colors shadow-sm">Donate</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-4 space-y-1 shadow-inner">
+                <a href="#home" class="mobile-nav-link block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-md">Home</a>
+                <a href="#about" class="mobile-nav-link block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-md">About</a>
+                <a href="#what-we-do" class="mobile-nav-link block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-md">What We Do</a>
+                <a href="#achievements" class="mobile-nav-link block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-md">Achievements</a>
+                <a href="#gallery" class="mobile-nav-link block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-md">Gallery</a>
+                <a href="#get-involved" class="mobile-nav-link block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-md">Get Involved</a>
+                <a href="#donate" class="mobile-nav-link block px-3 py-2 mt-4 text-center text-base font-medium text-white bg-brand-600 hover:bg-brand-700 rounded-md">Donate</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="app-content" class="flex-grow w-full"></main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 mt-auto border-t border-brand-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="text-white text-lg font-semibold mb-4">KGSA</h3>
+                    <p class="text-sm text-gray-400 mb-4">Empowering girls in Kibera through sports and education to break the cycle of poverty.</p>
+                    <p class="text-sm italic font-medium text-brand-500">Educate. Inspire. Empower.</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#what-we-do" class="hover:text-white transition-colors">Our Programs</a></li>
+                        <li><a href="#achievements" class="hover:text-white transition-colors">Success Stories</a></li>
+                        <li><a href="#get-involved" class="hover:text-white transition-colors">Volunteer</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Contact Us</h3>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-brand-500"></i>
+                            <span>Kibera, Nairobi<br>Kenya</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone text-brand-500"></i>
+                            <span>+254 700 000 000</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-brand-500"></i>
+                            <span>info@kgsa.org</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Support Our Work</h3>
+                    <p class="text-sm text-gray-400 mb-4">Your contribution helps provide education, safe spaces, and opportunities for girls in Kibera.</p>
+                    <a href="#donate" class="inline-block bg-brand-600 text-white px-6 py-2 rounded font-medium hover:bg-brand-500 transition-colors">Make a Donation</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-6 text-center text-sm text-gray-500">
+                &copy; <span id="year"></span> Kibera Girls Soccer Academy. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // --- Core Application Logic ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // --- Data Fetching with Fallbacks ---
+        // Simulating JSON responses in case the fetch fails (due to strict local CORS/Sandbox)
+        const fallbacks = {
+            gallery: [
+                { "src": "https://images.unsplash.com/photo-1542652735873-fb2825bac6e2?auto=format&fit=crop&q=80&w=800", "caption": "Our senior soccer team" },
+                { "src": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=800", "caption": "Science lab session" },
+                { "src": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800", "caption": "High school graduation" },
+                { "src": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=800", "caption": "Community outreach" },
+                { "src": "https://images.unsplash.com/photo-1526976663112-00d1b64b162f?auto=format&fit=crop&q=80&w=800", "caption": "Life skills workshop" },
+                { "src": "https://images.unsplash.com/photo-1560205001-a7578ec09772?auto=format&fit=crop&q=80&w=800", "caption": "Tennis practice" }
+            ],
+            achievements: [
+                { "year": "2023", "category": "Alumni", "title": "100% University Transition", "description": "All our high school graduates successfully transitioned to higher education institutions." },
+                { "year": "2021", "category": "Sports", "title": "Regional Soccer Champions", "description": "The KGSA senior soccer team won the Nairobi Regional Championship." },
+                { "year": "2018", "category": "School Growth", "title": "New Science Laboratory", "description": "Opened a state-of-the-art science lab to support STEM education." },
+                { "year": "2006", "category": "History", "title": "First School Class", "description": "Expanded from a sports team to a one-room school with 13 pioneer students." }
+            ],
+            news: [
+                { "date": "Oct 12, 2025", "title": "New Tech Partnership", "summary": "We've partnered with local tech hubs to introduce coding skills to our senior girls." },
+                { "date": "Sep 04, 2025", "title": "Annual Sports Gala", "summary": "Our community sports gala brought together hundreds to celebrate female athletes." }
+            ]
+        };
+
+        async function fetchJSONData(filename, type) {
+            try {
+                // Attempt to fetch actual JSON files
+                const response = await fetch(`./data/${filename}`);
+                if (!response.ok) throw new Error('Network response was not ok');
+                return await response.json();
+            } catch (error) {
+                console.info(`Falling back to local data for ${filename} (normal in sandbox environments).`);
+                return fallbacks[type];
+            }
+        }
+
+        // --- Page Renderers ---
+        const contentDiv = document.getElementById('app-content');
+
+        const pages = {
+            'home': renderHome,
+            'about': renderAbout,
+            'what-we-do': renderWhatWeDo,
+            'achievements': renderAchievements,
+            'gallery': renderGallery,
+            'get-involved': renderGetInvolved,
+            'donate': renderDonate
+        };
+
+        async function renderHome() {
+            const newsData = await fetchJSONData('news.json', 'news');
+            let newsHTML = newsData.map(news => `
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                    <span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">${news.date}</span>
+                    <h4 class="text-lg font-bold text-gray-900 mt-2 mb-2">${news.title}</h4>
+                    <p class="text-gray-600 text-sm">${news.summary}</p>
+                </div>
+            `).join('');
+
+            return `
+                <div class="fade-in">
+                    <!-- Hero Section -->
+                    <div class="hero-bg text-white py-32 md:py-48 px-4 text-center">
+                        <div class="max-w-4xl mx-auto">
+                            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Empowering Girls Through Education & Sports</h1>
+                            <p class="text-lg md:text-xl mb-10 text-gray-200 max-w-2xl mx-auto">Breaking the cycle of poverty in Kibera. We provide safe spaces, quality education, and life skills for young women to thrive.</p>
+                            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                                <a href="#donate" class="bg-brand-500 hover:bg-brand-400 text-white px-8 py-3 rounded-md font-semibold text-lg transition-colors shadow-lg">Donate Now</a>
+                                <a href="#what-we-do" class="bg-white hover:bg-gray-100 text-brand-900 px-8 py-3 rounded-md font-semibold text-lg transition-colors shadow-lg">Our Impact</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Impact/History -->
+                    <div class="py-16 bg-white">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                            <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Journey</h2>
+                            <p class="text-gray-600 max-w-3xl mx-auto mb-12 text-lg">KGSA began as a simple idea in 2002: use sport to keep girls safe and give them hope. Today, we have grown into a fully functional educational institution supporting hundreds of students.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <div class="p-6 border border-gray-100 rounded-xl bg-gray-50">
+                                    <div class="text-brand-600 text-4xl mb-4"><i class="fas fa-futbol"></i></div>
+                                    <h3 class="text-xl font-bold mb-2">Games & Sports</h3>
+                                    <p class="text-gray-600 text-sm">Fostering teamwork, discipline, and physical health through diverse sports programs.</p>
+                                </div>
+                                <div class="p-6 border border-gray-100 rounded-xl bg-gray-50">
+                                    <div class="text-brand-600 text-4xl mb-4"><i class="fas fa-user-graduate"></i></div>
+                                    <h3 class="text-xl font-bold mb-2">Higher Education</h3>
+                                    <p class="text-gray-600 text-sm">Supporting transitions to university and college to ensure long-term career success.</p>
+                                </div>
+                                <div class="p-6 border border-gray-100 rounded-xl bg-gray-50">
+                                    <div class="text-brand-600 text-4xl mb-4"><i class="fas fa-seedling"></i></div>
+                                    <h3 class="text-xl font-bold mb-2">Student Development</h3>
+                                    <p class="text-gray-600 text-sm">Life skills, mentorship, and leadership training to build resilient young women.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Impact Numbers -->
+                    <div class="py-16 bg-brand-900 text-white text-center">
+                        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8">
+                            <div>
+                                <div class="text-4xl md:text-5xl font-bold text-brand-400 mb-2">2002</div>
+                                <div class="text-sm uppercase tracking-wide">Year Founded</div>
+                            </div>
+                            <div>
+                                <div class="text-4xl md:text-5xl font-bold text-brand-400 mb-2">800+</div>
+                                <div class="text-sm uppercase tracking-wide">Girls Supported</div>
+                            </div>
+                            <div>
+                                <div class="text-4xl md:text-5xl font-bold text-brand-400 mb-2">100%</div>
+                                <div class="text-sm uppercase tracking-wide">Transition Rate</div>
+                            </div>
+                            <div>
+                                <div class="text-4xl md:text-5xl font-bold text-brand-400 mb-2">4</div>
+                                <div class="text-sm uppercase tracking-wide">Sports Disciplines</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent News Section -->
+                    <div class="py-16 bg-gray-50">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="flex justify-between items-end mb-8">
+                                <div>
+                                    <h2 class="text-3xl font-bold text-gray-900">Latest Updates</h2>
+                                    <p class="text-gray-600 mt-2">News and stories from our community.</p>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                ${newsHTML}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        async function renderAbout() {
+            return `
+                <div class="fade-in">
+                    <div class="bg-white py-16 border-b border-gray-100">
+                        <div class="max-w-4xl mx-auto px-4 text-center">
+                            <h1 class="text-4xl font-bold text-gray-900 mb-6">About KGSA</h1>
+                            <p class="text-xl text-gray-600 leading-relaxed">We believe that local problems require local solutions. We invest in the community's ability to create meaningful change from within.</p>
+                        </div>
+                    </div>
+
+                    <div class="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-2 gap-16">
+                        <!-- History -->
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                                <i class="fas fa-history text-brand-600"></i> Our History
+                            </h2>
+                            <div class="prose text-gray-600 space-y-4">
+                                <p>KGSA began as a simple idea: use sport to keep girls safe and give them hope. In 2002, a community coach started a girls' soccer team in Kibera, realizing that girls needed a safe space just as much as boys.</p>
+                                <p>In 2006, the project expanded organically into a one-room school with thirteen students. The community recognized that while sports provided a safe haven, education was the key to long-term empowerment.</p>
+                                <p>Since then, KGSA has grown exponentially to support hundreds of students through formal education, life skills training, and competitive sports programs.</p>
+                            </div>
+                        </div>
+
+                        <!-- Core Beliefs -->
+                        <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
+                            <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                                <i class="fas fa-heart text-brand-600"></i> What We Believe
+                            </h2>
+                            <ul class="space-y-6">
+                                <li>
+                                    <h4 class="font-bold text-gray-900">Local Leadership</h4>
+                                    <p class="text-sm text-gray-600 mt-1">When local leaders are empowered, they develop innovative and sustainable solutions to challenges such as poverty.</p>
+                                </li>
+                                <li>
+                                    <h4 class="font-bold text-gray-900">The Girl Effect</h4>
+                                    <p class="text-sm text-gray-600 mt-1">Investing in girls transforms their lives and uplifts entire families and communities.</p>
+                                </li>
+                                <li>
+                                    <h4 class="font-bold text-gray-900">Child Protection</h4>
+                                    <p class="text-sm text-gray-600 mt-1">This is a core part of our work. We ensure that every girl receives a quality education in a safe, respectful, and supportive environment.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mission & Vision -->
+                    <div class="bg-brand-900 py-16 text-white">
+                        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                            <div class="p-6">
+                                <div class="w-16 h-16 bg-brand-800 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                                    <i class="fas fa-bullseye"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3">Our Mission</h3>
+                                <p class="text-brand-100">Transforming lives through football and education.</p>
+                            </div>
+                            <div class="p-6">
+                                <div class="w-16 h-16 bg-brand-800 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3">Our Vision</h3>
+                                <p class="text-brand-100">Breaking the cycle of poverty for girls and their families, empowering them to become strong, independent, and resilient women.</p>
+                            </div>
+                            <div class="p-6">
+                                <div class="w-16 h-16 bg-brand-800 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3">Our Motto</h3>
+                                <p class="text-brand-100 text-xl font-medium italic">Educate. Inspire. Empower.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        async function renderWhatWeDo() {
+            return `
+                <div class="fade-in py-16 max-w-7xl mx-auto px-4">
+                    <div class="text-center mb-16">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-4">What We Do</h1>
+                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Our holistic approach integrates academics, sports, and personal development to ensure every girl reaches her full potential.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+                        <!-- Education Programs -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                            <div class="h-48 bg-gray-200" style="background: url('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=800') center/cover;"></div>
+                            <div class="p-8">
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                                    <i class="fas fa-book-open text-brand-600"></i> Education Programs
+                                </h2>
+                                <p class="text-gray-600 mb-6">We provide comprehensive educational support from secondary school through tertiary levels.</p>
+                                <ul class="space-y-4">
+                                    <li class="flex items-start gap-3">
+                                        <i class="fas fa-check-circle text-brand-500 mt-1"></i>
+                                        <div>
+                                            <strong class="text-gray-900 block">High School Support</strong>
+                                            <span class="text-sm text-gray-600">Full curriculum delivery, learning materials, and a safe learning environment.</span>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i class="fas fa-check-circle text-brand-500 mt-1"></i>
+                                        <div>
+                                            <strong class="text-gray-900 block">College Preparation</strong>
+                                            <span class="text-sm text-gray-600">Career guidance, application assistance, and vocational training pathways.</span>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i class="fas fa-check-circle text-brand-500 mt-1"></i>
+                                        <div>
+                                            <strong class="text-gray-900 block">University Preparation</strong>
+                                            <span class="text-sm text-gray-600">Scholarship sourcing, entrance exam prep, and transition mentoring.</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Sports Programs -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                            <div class="h-48 bg-gray-200" style="background: url('https://images.unsplash.com/photo-1542652735873-fb2825bac6e2?auto=format&fit=crop&q=80&w=800') center/cover;"></div>
+                            <div class="p-8">
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                                    <i class="fas fa-running text-brand-600"></i> Sports Programs
+                                </h2>
+                                <p class="text-gray-600 mb-6">Sports build confidence, teamwork, and resilience. We offer specialized training in four disciplines.</p>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-gray-50 p-4 rounded-lg text-center border border-gray-100">
+                                        <i class="fas fa-futbol text-3xl text-brand-600 mb-2"></i>
+                                        <h4 class="font-bold text-gray-900">Soccer</h4>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg text-center border border-gray-100">
+                                        <i class="fas fa-baseball-ball text-3xl text-brand-600 mb-2"></i> <!-- Using baseball as tennis ball fallback icon -->
+                                        <h4 class="font-bold text-gray-900">Tennis</h4>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg text-center border border-gray-100">
+                                        <i class="fas fa-football-ball text-3xl text-brand-600 mb-2"></i>
+                                        <h4 class="font-bold text-gray-900">Rugby</h4>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg text-center border border-gray-100">
+                                        <i class="fas fa-basketball-ball text-3xl text-brand-600 mb-2"></i>
+                                        <h4 class="font-bold text-gray-900">Netball</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Life Skills -->
+                    <div class="bg-brand-50 rounded-xl p-8 md:p-12 text-center border border-brand-100">
+                        <div class="w-16 h-16 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Life Skills Development</h2>
+                        <p class="text-gray-700 max-w-3xl mx-auto">Beyond the classroom and the field, we equip our girls with essential life skills. This includes leadership training, reproductive health education, financial literacy, and mental health support, ensuring they are fully prepared for the challenges of adulthood.</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        async function renderAchievements() {
+            const achievements = await fetchJSONData('achievements.json', 'achievements');
+            
+            let achievementsHTML = achievements.map(ach => `
+                <div class="relative pl-8 sm:pl-32 py-6 group">
+                    <div class="font-bold text-brand-600 sm:absolute left-0 top-6 sm:w-24 sm:text-right text-lg">${ach.year}</div>
+                    <div class="hidden sm:block absolute left-28 top-8 w-3 h-3 bg-brand-500 rounded-full border-2 border-white shadow"></div>
+                    <div class="hidden sm:block absolute left-[117px] top-11 bottom-[-24px] w-0.5 bg-gray-200 group-last:bg-transparent"></div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <span class="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded mb-2">${ach.category}</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">${ach.title}</h3>
+                        <p class="text-gray-600">${ach.description}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            return `
+                <div class="fade-in py-16 max-w-4xl mx-auto px-4">
+                    <div class="text-center mb-16">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-4">Our Achievements</h1>
+                        <p class="text-lg text-gray-600">Celebrating our milestones, alumni progress, and school growth.</p>
+                    </div>
+                    <div class="space-y-2">
+                        ${achievementsHTML}
+                    </div>
+                </div>
+            `;
+        }
+
+        async function renderGallery() {
+            const gallery = await fetchJSONData('gallery.json', 'gallery');
+            
+            let galleryHTML = gallery.map(img => `
+                <div class="group relative overflow-hidden rounded-lg shadow-sm bg-gray-200 aspect-w-4 aspect-h-3">
+                    <img src="${img.src}" alt="${img.caption}" class="object-cover w-full h-64 md:h-72 transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end">
+                        <p class="text-white p-4 font-medium translate-y-4 group-hover:translate-y-0 transition-transform duration-300">${img.caption}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            return `
+                <div class="fade-in py-16 max-w-7xl mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-4">Gallery</h1>
+                        <p class="text-lg text-gray-600">Glimpses of life, learning, and sports at KGSA.</p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        ${galleryHTML}
+                    </div>
+                </div>
+            `;
+        }
+
+        async function renderGetInvolved() {
+            return `
+                <div class="fade-in py-16 max-w-7xl mx-auto px-4">
+                    <div class="text-center mb-16">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-4">Get Involved</h1>
+                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">There are many ways to support our mission. Whether you give your time, resources, or voice, you can make a difference.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                        <!-- Volunteer -->
+                        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
+                            <div class="w-16 h-16 bg-brand-50 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                                <i class="fas fa-user-friends"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Volunteer</h3>
+                            <p class="text-gray-600 text-sm mb-6">Join us on the ground or virtually. We welcome tutors, sports coaches, and mentors to work directly with our students.</p>
+                            <button class="w-full bg-white border border-brand-600 text-brand-700 font-medium py-2 rounded hover:bg-brand-50 transition">Apply to Volunteer</button>
+                        </div>
+
+                        <!-- Partnerships -->
+                        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
+                            <div class="w-16 h-16 bg-brand-50 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Partnerships</h3>
+                            <p class="text-gray-600 text-sm mb-6">We collaborate with local and international organizations, universities, and corporations to expand our impact.</p>
+                            <button class="w-full bg-white border border-brand-600 text-brand-700 font-medium py-2 rounded hover:bg-brand-50 transition">Partner With Us</button>
+                        </div>
+
+                        <!-- Sponsorship -->
+                        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
+                            <div class="w-16 h-16 bg-brand-50 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Student Sponsorship</h3>
+                            <p class="text-gray-600 text-sm mb-6">Sponsor a girl's education. Your commitment covers tuition, uniforms, meals, and learning materials for a full year.</p>
+                            <a href="#donate" class="block w-full bg-brand-600 text-white font-medium py-2 rounded hover:bg-brand-700 transition">Sponsor a Student</a>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter Sign Up -->
+                    <div class="bg-gray-900 rounded-xl p-8 md:p-12 text-center">
+                        <h2 class="text-2xl font-bold text-white mb-4">Subscribe to our Newsletter</h2>
+                        <p class="text-gray-400 mb-8 max-w-xl mx-auto">Stay updated on our progress, success stories, and upcoming events in Kibera.</p>
+                        <form class="flex flex-col sm:flex-row justify-center max-w-lg mx-auto gap-3" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                            <input type="email" placeholder="Enter your email address" class="flex-grow px-4 py-3 rounded text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-500" required>
+                            <button type="submit" class="bg-brand-600 hover:bg-brand-500 text-white px-6 py-3 rounded font-medium transition-colors">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            `;
+        }
+
+        async function renderDonate() {
+            return `
+                <div class="fade-in py-16 max-w-6xl mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-4">Donate to KGSA</h1>
+                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Your donations matter. They provide direct educational materials, sports equipment, and operational support to keep our school running.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <!-- M-Pesa Section -->
+                        <div class="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden">
+                            <div class="bg-green-500 p-6 flex justify-between items-center">
+                                <h2 class="text-2xl font-bold text-white">Lipa na M-PESA</h2>
+                                <i class="fas fa-mobile-alt text-4xl text-white opacity-80"></i>
+                            </div>
+                            <div class="p-8">
+                                <ol class="space-y-4 text-gray-700 mb-8 list-decimal pl-5">
+                                    <li>Go to M-PESA menu on your phone</li>
+                                    <li>Select <strong>Lipa na M-PESA</strong></li>
+                                    <li>Select <strong>Pay Bill</strong></li>
+                                    <li>Enter Business Number: <strong class="text-lg text-gray-900 tracking-wider">890890</strong> <span class="text-xs text-gray-500">(Placeholder)</span></li>
+                                    <li>Enter Account Number: <strong>Your Name</strong></li>
+                                    <li>Enter the Amount</li>
+                                    <li>Enter your M-PESA PIN and Confirm</li>
+                                </ol>
+                                <div class="bg-gray-50 p-4 rounded text-center text-sm text-gray-600 border border-gray-200">
+                                    You will receive a confirmation message from M-PESA and KGSA shortly after.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bank Transfer Section -->
+                        <div class="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden">
+                            <div class="bg-gray-800 p-6 flex justify-between items-center">
+                                <h2 class="text-2xl font-bold text-white">Bank Transfer</h2>
+                                <i class="fas fa-university text-4xl text-white opacity-80"></i>
+                            </div>
+                            <div class="p-8">
+                                <div class="space-y-6">
+                                    <div>
+                                        <p class="text-sm text-gray-500 uppercase font-semibold">Account Name</p>
+                                        <p class="text-xl font-bold text-gray-900">Kibera Girls Soccer Academy</p>
+                                    </div>
+                                    <hr class="border-gray-100">
+                                    <div>
+                                        <p class="text-sm text-gray-500 uppercase font-semibold">Bank Name</p>
+                                        <p class="text-lg text-gray-800">Absa Bank Kenya PLC</p>
+                                    </div>
+                                    <hr class="border-gray-100">
+                                    <div>
+                                        <p class="text-sm text-gray-500 uppercase font-semibold">Branch</p>
+                                        <p class="text-lg text-gray-800">Queensway House Branch</p>
+                                    </div>
+                                    <hr class="border-gray-100">
+                                    <div>
+                                        <p class="text-sm text-gray-500 uppercase font-semibold">Account Number</p>
+                                        <p class="text-lg font-mono text-gray-900 font-bold tracking-wider">0123456789</p>
+                                        <p class="text-xs text-gray-400 mt-1">*Placeholder number for display</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Details -->
+                    <div class="mt-12 text-center text-gray-600">
+                        <p>For in-kind donations, corporate matching, or international transfers, please contact us:</p>
+                        <p class="mt-2 font-medium">Phone: +254 700 000 000 | Location: Kibera, Nairobi, Kenya</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- Router ---
+        async function router() {
+            let hash = window.location.hash.replace('#', '') || 'home';
+            
+            // Map routes to functions
+            const renderFunc = pages[hash] || pages['home'];
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if(link.getAttribute('href') === `#${hash}`) {
+                    link.classList.add('text-brand-600', 'font-bold');
+                    link.classList.remove('text-gray-600', 'font-medium');
+                } else {
+                    link.classList.remove('text-brand-600', 'font-bold');
+                    link.classList.add('text-gray-600', 'font-medium');
+                }
+            });
+
+            // Render content
+            contentDiv.innerHTML = '<div class="flex justify-center items-center h-64"><i class="fas fa-spinner fa-spin text-3xl text-brand-500"></i></div>';
+            contentDiv.innerHTML = await renderFunc();
+            
+            // Scroll to top on page change
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Event listeners for routing
+        window.addEventListener('hashchange', router);
+        window.addEventListener('DOMContentLoaded', router);
+
+    </script>
+</body>
+</html>
